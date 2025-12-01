@@ -53,14 +53,21 @@ input_data = np.array([[
 
 if st.button("Predict"):
 
-    prediction = model.predict(input_data)[0]
-
+    # Get probability of attending
     prob_attend = model.predict_proba(input_data)[0][1]
+
+# Set custom threshold
+    threshold = 0.3
+
+# Decide prediction based on your threshold
+    prediction = 1 if prob_attend >= threshold else 0
     prob_not_attend = 1 - prob_attend
 
+# Convert to percentages
     prob_attend_pct = round(prob_attend * 100, 2)
     prob_not_attend_pct = round(prob_not_attend * 100, 2)
 
+# Interpretation
     if prediction == 1:
         interpretation = (
             f" **This person is likely to accept the reunion invitation.**\n"
