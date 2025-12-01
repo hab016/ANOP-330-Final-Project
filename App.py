@@ -18,7 +18,7 @@ with open("model.pkl", "rb") as file:
     model = pickle.load(file)
 
 st.title("Bucknell University Reunion Prediction App")
-st.write("Enter the values below and get a prediction based on your model.")
+
 
 parent_current = st.radio("Are you a current parent?", ["No", "Yes"])
 greek = st.radio("Were you involved in greek life?", ["No", "Yes"])
